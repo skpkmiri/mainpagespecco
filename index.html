@@ -80,206 +80,230 @@
             </div>
         </header>
 
-        <!-- Bahagian Senarai Menu -->
-        <main class="flex-1 px-5 py-1 overflow-y-auto z-10 space-y-2.5 pb-24">
+        <!-- Bahagian Senarai Menu Utama & Sub-Halaman -->
+        <main class="flex-1 px-5 py-1 overflow-y-auto z-10 pb-24 relative">
             
-            <!-- 1. Website -->
-            <a href="https://karnivalkokurikulum.sekolah-8943-cm1.workers.dev/" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.2s;">
-                <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
-                    <i class="fas fa-globe text-lg"></i>
-                </div>
-                <div class="ml-3 flex-1">
-                    <h2 class="font-bold text-white text-base tracking-wide group-hover:text-amber-300 transition-colors">Website Karnival</h2>
-                    <p class="text-[11px] text-amber-200/70 mt-0.5">Laman Sesawang Rasmi Karnival</p>
-                </div>
-                <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
-            </a>
+            <!-- HALAMAN UTAMA -->
+            <div id="view-main" class="space-y-2.5 w-full transition-opacity duration-300">
+                
+                <!-- 1. Website -->
+                <a href="https://karnivalkokurikulum.sekolah-8943-cm1.workers.dev/" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.1s;">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fas fa-globe text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-amber-300 transition-colors">Website Karnival</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Laman Sesawang Rasmi Karnival</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
 
-            <!-- 2. Live Update Petanque -->
-            <a href="#" onclick="showToast('Live Keputusan Petanque'); return false;" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.3s;">
-                <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner relative">
-                    <i class="fas fa-satellite-dish text-lg"></i>
-                    <!-- Titik merah berkelip -->
-                    <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-400 border-2 border-white rounded-full animate-soft-pulse"></span>
-                </div>
-                <div class="ml-3 flex-1">
-                    <h2 class="font-bold text-white text-base tracking-wide group-hover:text-amber-300 transition-colors">Live Keputusan Petanque</h2>
-                    <p class="text-[11px] text-amber-200/70 mt-0.5">Keputusan Semasa Pertandingan</p>
-                </div>
-                <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
-            </a>
+                <!-- 2. Live Update Petanque -->
+                <a href="#" onclick="showToast('Live Keputusan Petanque'); return false;" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner relative">
+                        <i class="fas fa-satellite-dish text-lg"></i>
+                        <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-red-400 border-2 border-white rounded-full animate-soft-pulse"></span>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-amber-300 transition-colors">Live Keputusan Petanque</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Keputusan Semasa Pertandingan</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
 
-            <!-- 3. Buku Program -->
-            <a href="https://anyflip.com/ehece/mewj/" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.4s;">
-                <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-emerald-500 to-teal-700 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
-                    <i class="fas fa-book-open text-lg"></i>
-                </div>
-                <div class="ml-3 flex-1">
-                    <h2 class="font-bold text-white text-base tracking-wide group-hover:text-amber-300 transition-colors">Buku Program</h2>
-                    <p class="text-[11px] text-amber-200/70 mt-0.5">Buku Program Digital</p>
-                </div>
-                <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
-            </a>
+                <!-- 3. Buku Program -->
+                <a href="https://anyflip.com/ehece/mewj/" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.3s;">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-emerald-500 to-teal-700 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fas fa-book-open text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-amber-300 transition-colors">Buku Program</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Buku Program Digital</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
 
-            <!-- 4. Sijil Karnival -->
-            <a href="#" onclick="showToast('Sijil Karnival'); return false;" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.5s;">
-                <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-amber-400 to-yellow-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
-                    <i class="fas fa-certificate text-lg"></i>
-                </div>
-                <div class="ml-3 flex-1">
-                    <h2 class="font-bold text-white text-base tracking-wide group-hover:text-amber-300 transition-colors">Sijil Karnival</h2>
-                    <p class="text-[11px] text-amber-200/70 mt-0.5">Muat Turun Sijil Penyertaan</p>
-                </div>
-                <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
-            </a>
+                <!-- 4. Sijil Karnival -->
+                <a href="#" onclick="showToast('Sijil Karnival'); return false;" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.4s;">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-amber-400 to-yellow-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fas fa-certificate text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-amber-300 transition-colors">Sijil Karnival</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Muat Turun Sijil Penyertaan</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
 
-            <!-- 5. Kehadiran -->
-            <a href="https://skpkmiri.github.io/PIBG/" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.6s;">
-                <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-rose-500 to-pink-700 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
-                    <i class="fas fa-user-check text-lg"></i>
-                </div>
-                <div class="ml-3 flex-1">
-                    <h2 class="font-bold text-white text-base tracking-wide group-hover:text-amber-300 transition-colors">Kehadiran</h2>
-                    <p class="text-[11px] text-amber-200/70 mt-0.5">Rekod Kehadiran Karnival</p>
-                </div>
-                <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
-            </a>
+                <!-- 5. Kehadiran -->
+                <a href="https://skpkmiri.github.io/PIBG/" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.5s;">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-rose-500 to-pink-700 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fas fa-user-check text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-amber-300 transition-colors">Kehadiran</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Rekod Kehadiran Karnival</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
 
-            <!-- 6. Galeri Karnival -->
-            <a href="#" onclick="showToast('Galeri Karnival'); return false;" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.7s;">
-                <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
-                    <i class="fas fa-images text-lg"></i>
-                </div>
-                <div class="ml-3 flex-1">
-                    <h2 class="font-bold text-white text-base tracking-wide group-hover:text-amber-300 transition-colors">Galeri Karnival</h2>
-                    <p class="text-[11px] text-amber-200/70 mt-0.5">Koleksi Gambar Semasa Program</p>
-                </div>
-                <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
-            </a>
+                <!-- 6. Senarai Peserta (Kini Butang Utama yang buka Sub-Halaman) -->
+                <a href="#" onclick="showView('peserta'); return false;" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.6s;">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-cyan-600 to-blue-800 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fas fa-users text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-cyan-300 transition-colors">Senarai Peserta</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Lihat Senarai Nama Peserta</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
 
-            <!-- 7. Facebook SKPK Miri -->
-            <a href="https://www.facebook.com/share/1ZNKbFnoSk/?mibextid=wwXIfr" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-blue-500/40 hover:border-blue-400 hover:bg-[#1877F2]/20 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.8s;">
-                <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
-                    <i class="fab fa-facebook-f text-lg"></i>
-                </div>
-                <div class="ml-3 flex-1">
-                    <h2 class="font-bold text-white text-base tracking-wide group-hover:text-blue-300 transition-colors">Facebook SKPK Miri</h2>
-                    <p class="text-[11px] text-blue-200/70 mt-0.5">Ikuti Perkembangan di FB</p>
-                </div>
-                <i class="fas fa-chevron-right text-blue-400/60 text-xs group-hover:text-blue-400 group-hover:translate-x-1 transition-all"></i>
-            </a>
+                <!-- 7. Galeri Karnival (Kini Buka Sub-Halaman) -->
+                <a href="#" onclick="showView('galeri'); return false;" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.7s;">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fas fa-images text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-amber-300 transition-colors">Galeri Karnival</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Koleksi Gambar Semasa Program</p>
+                    </div>
+                    <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
 
-            <!-- 8. TikTok SKPK Miri -->
-            <a href="https://www.tiktok.com/@skpkmiri?_r=1&_t=ZS-9BQX25NP04K" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-gray-400/40 hover:border-white/80 hover:bg-white/10 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.9s;">
-                <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-slate-700 to-slate-900 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
-                    <i class="fab fa-tiktok text-lg"></i>
+                <!-- 8. Facebook SKPK Miri -->
+                <a href="https://www.facebook.com/share/1ZNKbFnoSk/?mibextid=wwXIfr" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-blue-500/40 hover:border-blue-400 hover:bg-[#1877F2]/20 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.8s;">
+                    <div class="w-10 h-10 flex-shrink-0 bg-[#1877F2] rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fab fa-facebook-f text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-blue-300 transition-colors">Facebook SKPK Miri</h2>
+                        <p class="text-[11px] text-blue-200/70 mt-0.5">Laman Sosial Rasmi Facebook</p>
+                    </div>
+                    <i class="fas fa-external-link-alt text-blue-400/60 text-xs group-hover:text-blue-300 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <!-- 9. TikTok SKPK Miri -->
+                <a href="https://www.tiktok.com/@skpkmiri?_r=1&_t=ZS-9BQX25NP04K" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-pink-500/40 hover:border-pink-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.9s;">
+                    <div class="w-10 h-10 flex-shrink-0 bg-black border border-gray-700 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fab fa-tiktok text-lg text-pink-500"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-pink-300 transition-colors">TikTok SKPK Miri</h2>
+                        <p class="text-[11px] text-gray-300/70 mt-0.5">Video Menarik di TikTok</p>
+                    </div>
+                    <i class="fas fa-external-link-alt text-pink-400/60 text-xs group-hover:text-pink-300 group-hover:translate-x-1 transition-all"></i>
+                </a>
+            </div>
+
+            <!-- HALAMAN 2: SENARAI PESERTA -->
+            <div id="view-peserta" class="hidden space-y-2.5 w-full animate-fade-in">
+                <div class="pt-2 pb-3">
+                    <h3 class="text-amber-950 font-black text-sm uppercase tracking-widest text-center border-b border-amber-900/20 pb-2">Senarai Peserta</h3>
                 </div>
-                <div class="ml-3 flex-1">
-                    <h2 class="font-bold text-white text-base tracking-wide group-hover:text-white transition-colors">TikTok SKPK Miri</h2>
-                    <p class="text-[11px] text-slate-300/70 mt-0.5">Tonton Video Menarik di TikTok</p>
+
+                <!-- Peserta: Petanque -->
+                <a href="petanque.png" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fas fa-users text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-cyan-300 transition-colors">Peserta Petanque</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Senarai Nama Pasukan Petanque</p>
+                    </div>
+                    <i class="fas fa-external-link-alt text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <!-- Peserta: English Carnival -->
+                <a href="english.png" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fas fa-language text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-indigo-300 transition-colors">English Carnival</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Senarai Peserta English Carnival</p>
+                    </div>
+                    <i class="fas fa-external-link-alt text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <!-- Peserta: Semarak Seni (SR) -->
+                <a href="sr.png" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-pink-500 to-rose-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fas fa-palette text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-pink-300 transition-colors">Semarak Seni (SR)</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Senarai Peserta Sekolah Rendah</p>
+                    </div>
+                    <i class="fas fa-external-link-alt text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <!-- Peserta: Semarak Seni (SM) -->
+                <a href="sm.png" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fas fa-paint-brush text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-orange-300 transition-colors">Semarak Seni (SM)</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Senarai Peserta Sekolah Menengah</p>
+                    </div>
+                    <i class="fas fa-external-link-alt text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <!-- Butang Kembali -->
+                <button onclick="showView('main')" class="w-full mt-6 py-3 bg-amber-800/90 hover:bg-amber-700 text-white rounded-xl shadow-lg font-bold tracking-wider transition-colors border border-amber-600/50 flex items-center justify-center">
+                    <i class="fas fa-arrow-left mr-2"></i> KEMBALI
+                </button>
+            </div>
+
+            <!-- HALAMAN 3: GALERI KARNIVAL -->
+            <div id="view-galeri" class="hidden space-y-2.5 w-full animate-fade-in">
+                <div class="pt-2 pb-3">
+                    <h3 class="text-amber-950 font-black text-sm uppercase tracking-widest text-center border-b border-amber-900/20 pb-2">Galeri Karnival</h3>
                 </div>
-                <i class="fas fa-chevron-right text-slate-300/60 text-xs group-hover:text-white group-hover:translate-x-1 transition-all"></i>
-            </a>
+
+                <!-- Galeri: Petanque -->
+                <a href="https://photos.app.goo.gl/1dmv9AyH1Lb78Ft69" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-blue-400 to-blue-700 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fas fa-camera text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-blue-300 transition-colors">Galeri Petanque</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Gambar Sekitar Pertandingan</p>
+                    </div>
+                    <i class="fas fa-external-link-alt text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <!-- Galeri: English Carnival -->
+                <a href="https://photos.app.goo.gl/ux2Z1MTYFNvjbygU8" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-indigo-400 to-indigo-700 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fas fa-photo-video text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-indigo-300 transition-colors">English Carnival</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Gambar English Carnival</p>
+                    </div>
+                    <i class="fas fa-external-link-alt text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <!-- Galeri: Semarak Seni 6 -->
+                <a href="https://photos.app.goo.gl/5X7yViNJ4a44thLMA" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-pink-400 to-pink-700 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                        <i class="fas fa-image text-lg"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-pink-300 transition-colors">Semarak Seni 6</h2>
+                        <p class="text-[11px] text-amber-200/70 mt-0.5">Gambar Semarak Seni</p>
+                    </div>
+                    <i class="fas fa-external-link-alt text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                </a>
+
+                <!-- Butang Kembali -->
+                <button onclick="showView('main')" class="w-full mt-6 py-3 bg-amber-800/90 hover:bg-amber-700 text-white rounded-xl shadow-lg font-bold tracking-wider transition-colors border border-amber-600/50 flex items-center justify-center">
+                    <i class="fas fa-arrow-left mr-2"></i> KEMBALI
+                </button>
+            </div>
 
         </main>
-
-        <!-- Notifikasi "Toast" Custom -->
-        <div id="toast" class="fixed bottom-16 left-1/2 transform -translate-x-1/2 bg-slate-800/95 backdrop-blur-md text-white px-5 py-2.5 rounded-full shadow-2xl transition-all duration-300 opacity-0 pointer-events-none translate-y-5 z-50 flex items-center border border-white/10">
-            <i class="fas fa-info-circle text-amber-400 mr-2.5 text-base"></i>
-            <span id="toast-msg" class="font-medium text-xs"></span>
-        </div>
         
-        <!-- Footer Tambahan -->
-        <footer class="w-full text-center py-4 mt-auto z-10 pb-6 relative">
-            <p class="text-[10px] font-bold text-amber-900/60 tracking-widest uppercase">
-                Unit ICT SKPK Miri &copy; 2026
-            </p>
-        </footer>
-    </div>
-
-    <!-- Skrip UI (Toast Notification) -->
-    <script>
-        function showToast(menuName) {
-            const toast = document.getElementById('toast');
-            const msg = document.getElementById('toast-msg');
-            msg.innerText = "Membuka halaman " + menuName + "... (Dalam pembinaan)";
-            toast.classList.remove('opacity-0', 'translate-y-5');
-            toast.classList.add('opacity-100', 'translate-y-0');
-            setTimeout(() => {
-                toast.classList.remove('opacity-100', 'translate-y-0');
-                toast.classList.add('opacity-0', 'translate-y-5');
-            }, 3000);
-        }
-    </script>
-
-    <!-- Skrip Sistem Firebase: Kaunter Pelawat Berfungsi Secara Live -->
-    <script type="module">
-        // Import fungsi Firebase daripada CDN (versi modular)
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-
-        // Konfigurasi Firebase anda
-        const firebaseConfig = {
-            apiKey: "AIzaSyBlByaUFNnopnXTzkSkhy8m3uH5AZfCWb4",
-            authDomain: "main-page-specco.firebaseapp.com",
-            projectId: "main-page-specco",
-            storageBucket: "main-page-specco.firebasestorage.app",
-            messagingSenderId: "481089033268",
-            appId: "1:481089033268:web:6d4416fb36745cac4f6661",
-            measurementId: "G-WJRCD1FF1K"
-        };
-
-        // Memulakan Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        // Fungsi Kaunter Pelawat
-        async function rekodPelawat() {
-            try {
-                // Mendapatkan tarikh hari ini (Contoh: "2024-05-20")
-                const tarikhHariIni = new Date().toISOString().split('T')[0];
-                const statistikRef = doc(db, "sistem_rekod", "pelawat");
-                
-                // Periksa data dalam pangkalan data
-                const docSnap = await getDoc(statistikRef);
-                
-                let jumlahKeseluruhan = 1;
-                let jumlahHariIni = 1;
-
-                if (docSnap.exists()) {
-                    const data = docSnap.data();
-                    jumlahKeseluruhan = (data.jumlah_keseluruhan || 0) + 1;
-                    
-                    // Semak jika tarikh dalam pangkalan data sama dengan tarikh hari ini
-                    if (data.tarikh_terakhir === tarikhHariIni) {
-                        jumlahHariIni = (data.jumlah_hari_ini || 0) + 1;
-                    } else {
-                        // Jika hari bertukar, reset kaunter hari ini
-                        jumlahHariIni = 1; 
-                    }
-                }
-
-                // Kemaskini Firebase Database
-                await setDoc(statistikRef, {
-                    jumlah_keseluruhan: jumlahKeseluruhan,
-                    jumlah_hari_ini: jumlahHariIni,
-                    tarikh_terakhir: tarikhHariIni
-                }, { merge: true });
-
-                // Kemaskini Nombor di Paparan Skrin
-                document.getElementById('hari-ini-count').innerText = jumlahHariIni.toLocaleString();
-                document.getElementById('jumlah-count').innerText = jumlahKeseluruhan.toLocaleString();
-
-            } catch (error) {
-                console.error("Ralat menyambung ke Firebase:", error);
-                // Jika pangkalan data belum disahkan (rule belum diset), papar nombor statik.
-                document.getElementById('hari-ini-count').innerText = "128";
-                document.getElementById('jumlah-count').innerText = "1,402";
-            }
-        }
-
-        // Jalankan fungsi apabila laman dimuatkan
-        rekodPelawat();
-    </script>
-</body>
-</html>
+        <!-- Footer -->
