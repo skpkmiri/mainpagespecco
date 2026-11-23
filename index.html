@@ -160,7 +160,7 @@
                     <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
                 </a>
 
-                <!-- 6. Senarai Peserta (Kini Butang Utama yang buka Sub-Halaman) -->
+                <!-- 6. Senarai Peserta -->
                 <a href="#" onclick="showView('peserta'); return false;" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.6s;">
                     <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-cyan-600 to-blue-800 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
                         <i class="fas fa-users text-lg"></i>
@@ -172,7 +172,7 @@
                     <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
                 </a>
 
-                <!-- 7. Galeri Karnival (Kini Buka Sub-Halaman) -->
+                <!-- 7. Galeri Karnival -->
                 <a href="#" onclick="showView('galeri'); return false;" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300 animate-fade-in" style="animation-delay: 0.7s;">
                     <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
                         <i class="fas fa-images text-lg"></i>
@@ -431,52 +431,58 @@
                     <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
                 </a>
 
-                <!-- 3. SEMARAK SENI -->
-                <div class="pt-3 pb-0.5 flex items-center gap-2 border-t border-amber-900/15">
-                    <img src="ss.png" alt="Semarak Seni" class="w-5 h-5 object-contain">
-                    <span class="text-xs font-black text-amber-950 uppercase tracking-wider">Semarak Seni</span>
+                <!-- 3. SEMARAK SENI (DITUTUP SEMENTARA UNTUK KEMASKINI SIJIL) -->
+                <div class="pt-3 pb-0.5 flex items-center justify-between border-t border-amber-900/15">
+                    <div class="flex items-center gap-2">
+                        <img src="ss.png" alt="Semarak Seni" class="w-5 h-5 object-contain opacity-75">
+                        <span class="text-xs font-black text-amber-950 uppercase tracking-wider">Semarak Seni</span>
+                    </div>
+                    <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-900/15 text-amber-950 px-2 py-0.5 rounded-full">Ditutup Sementara</span>
                 </div>
 
-                <!-- Semarak Seni: Sijil Penyertaan -->
-                <a href="https://drive.google.com/file/d/1vh9XF-PSJkWs8cktPu_JimwBBoXFTCJL/view?usp=sharing" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300">
-                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-pink-500 to-rose-700 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner overflow-hidden p-1.5">
+                <!-- Semarak Seni: Sijil Penyertaan (Ditutup Sementara) -->
+                <a href="#" onclick="showMaintenanceToast('Sijil Penyertaan Semarak Seni'); return false;" class="menu-item flex items-center p-3 bg-black/45 backdrop-blur-xl rounded-2xl shadow-md border border-gray-500/30 opacity-75 cursor-not-allowed transition-all duration-300">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-gray-600 to-gray-800 rounded-full flex items-center justify-center text-white shadow-inner overflow-hidden p-1.5 grayscale">
                         <img src="ss.png" alt="Semarak Seni" class="w-full h-full object-contain drop-shadow-md">
                     </div>
                     <div class="ml-3 flex-1">
-                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-pink-300 transition-colors">Sijil Penyertaan</h2>
-                        <p class="text-[11px] text-amber-200/70 mt-0.5">Sijil Penyertaan Semarak Seni</p>
+                        <h2 class="font-bold text-gray-200 text-base tracking-wide">Sijil Penyertaan</h2>
+                        <p class="text-[11px] text-amber-300/90 mt-0.5 font-medium"><i class="fas fa-tools mr-1 text-[10px]"></i>Ditutup sementara untuk kemaskini sijil</p>
                     </div>
-                    <i class="fas fa-external-link-alt text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                    <i class="fas fa-lock text-gray-400/70 text-xs"></i>
                 </a>
 
-                <!-- Semarak Seni: Sijil Pencapaian -->
-                <a href="https://drive.google.com/file/d/1MVogQiFXEWmP-j5u4yS6qMaGoRSdc4Ke/view?usp=sharing" target="_blank" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300">
-                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner overflow-hidden p-1.5">
+                <!-- Semarak Seni: Sijil Pencapaian (Ditutup Sementara) -->
+                <a href="#" onclick="showMaintenanceToast('Sijil Pencapaian Semarak Seni'); return false;" class="menu-item flex items-center p-3 bg-black/45 backdrop-blur-xl rounded-2xl shadow-md border border-gray-500/30 opacity-75 cursor-not-allowed transition-all duration-300">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-gray-600 to-gray-800 rounded-full flex items-center justify-center text-white shadow-inner overflow-hidden p-1.5 grayscale">
                         <img src="ss.png" alt="Semarak Seni" class="w-full h-full object-contain drop-shadow-md">
                     </div>
                     <div class="ml-3 flex-1">
-                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-orange-300 transition-colors">Sijil Pencapaian</h2>
-                        <p class="text-[11px] text-amber-200/70 mt-0.5">Sijil Pencapaian Semarak Seni</p>
+                        <h2 class="font-bold text-gray-200 text-base tracking-wide">Sijil Pencapaian</h2>
+                        <p class="text-[11px] text-amber-300/90 mt-0.5 font-medium"><i class="fas fa-tools mr-1 text-[10px]"></i>Ditutup sementara untuk kemaskini sijil</p>
                     </div>
-                    <i class="fas fa-external-link-alt text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                    <i class="fas fa-lock text-gray-400/70 text-xs"></i>
                 </a>
 
-                <!-- 4. SIJIL PENGHARGAAN JURI -->
-                <div class="pt-3 pb-0.5 flex items-center gap-2 border-t border-amber-900/15">
-                    <i class="fas fa-award text-amber-950 text-sm"></i>
-                    <span class="text-xs font-black text-amber-950 uppercase tracking-wider">Penghargaan Juri</span>
+                <!-- 4. SIJIL PENGHARGAAN JURI (DITUTUP SEMENTARA UNTUK KEMASKINI SIJIL) -->
+                <div class="pt-3 pb-0.5 flex items-center justify-between border-t border-amber-900/15">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-award text-amber-950 text-sm opacity-75"></i>
+                        <span class="text-xs font-black text-amber-950 uppercase tracking-wider">Penghargaan Juri</span>
+                    </div>
+                    <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-900/15 text-amber-950 px-2 py-0.5 rounded-full">Ditutup Sementara</span>
                 </div>
 
-                <!-- Sijil Penghargaan Juri (Buka Sub-Halaman Senarai Nama Juri) -->
-                <a href="#" onclick="showView('juri'); return false;" class="menu-item flex items-center p-3 bg-black/60 backdrop-blur-xl rounded-2xl shadow-lg border border-amber-500/30 hover:border-amber-400 hover:bg-black/80 group transition-all duration-300">
-                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-amber-500 to-yellow-600 rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-inner">
+                <!-- Sijil Penghargaan Juri (Ditutup Sementara) -->
+                <a href="#" onclick="showMaintenanceToast('Sijil Penghargaan Juri'); return false;" class="menu-item flex items-center p-3 bg-black/45 backdrop-blur-xl rounded-2xl shadow-md border border-gray-500/30 opacity-75 cursor-not-allowed transition-all duration-300">
+                    <div class="w-10 h-10 flex-shrink-0 bg-gradient-to-br from-gray-600 to-gray-800 rounded-full flex items-center justify-center text-gray-300 shadow-inner">
                         <i class="fas fa-award text-lg"></i>
                     </div>
                     <div class="ml-3 flex-1">
-                        <h2 class="font-bold text-white text-base tracking-wide group-hover:text-amber-300 transition-colors">Sijil Penghargaan Juri</h2>
-                        <p class="text-[11px] text-amber-200/70 mt-0.5">Muat Turun Sijil Mengikut Nama Juri</p>
+                        <h2 class="font-bold text-gray-200 text-base tracking-wide">Sijil Penghargaan Juri</h2>
+                        <p class="text-[11px] text-amber-300/90 mt-0.5 font-medium"><i class="fas fa-tools mr-1 text-[10px]"></i>Ditutup sementara untuk kemaskini sijil</p>
                     </div>
-                    <i class="fas fa-chevron-right text-amber-500/60 text-xs group-hover:text-amber-400 group-hover:translate-x-1 transition-all"></i>
+                    <i class="fas fa-lock text-gray-400/70 text-xs"></i>
                 </a>
 
                 <!-- Butang Kembali -->
@@ -485,7 +491,7 @@
                 </button>
             </div>
 
-            <!-- HALAMAN 5: SENARAI SIJIL PENGHARGAAN JURI -->
+            <!-- HALAMAN 5: SENARAI SIJIL PENGHARGAAN JURI (REKOD DIKEKALKAN) -->
             <div id="view-juri" class="hidden space-y-2.5 w-full animate-fade-in">
                 <div class="pt-2 pb-2">
                     <h3 class="text-amber-950 font-black text-sm uppercase tracking-widest text-center border-b border-amber-900/20 pb-2">Sijil Penghargaan Juri</h3>
@@ -626,9 +632,9 @@
     </div>
 
     <!-- Elemen untuk Notifikasi (Toast) -->
-    <div id="toast" class="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-black/90 text-white px-5 py-3 rounded-full shadow-2xl opacity-0 transition-opacity duration-300 pointer-events-none z-50 flex items-center border border-amber-500/50">
-        <i class="fas fa-info-circle text-amber-400 mr-2"></i>
-        <span id="toast-msg" class="text-sm font-medium tracking-wide"></span>
+    <div id="toast" class="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-black/95 text-white px-5 py-3 rounded-2xl shadow-2xl opacity-0 transition-opacity duration-300 pointer-events-none z-50 flex items-center border border-amber-500/50 max-w-[90vw] text-center">
+        <i id="toast-icon" class="fas fa-info-circle text-amber-400 mr-2 flex-shrink-0"></i>
+        <span id="toast-msg" class="text-xs sm:text-sm font-medium tracking-wide"></span>
     </div>
     
     <!-- Script Firebase (Module) -->
@@ -692,6 +698,8 @@
 
     <!-- Script Pertukaran Halaman (SPA) & Interaksi -->
     <script>
+        let toastTimeout;
+
         // Fungsi untuk menukar halaman Senarai Peserta, Galeri, Sijil, Juri, dan Main
         function showView(viewId) {
             ['view-main', 'view-peserta', 'view-galeri', 'view-sijil', 'view-juri'].forEach(id => {
@@ -713,15 +721,36 @@
         function showToast(message) {
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-msg');
+            const toastIcon = document.getElementById('toast-icon');
             
+            toastIcon.className = "fas fa-info-circle text-amber-400 mr-2 flex-shrink-0";
             toastMsg.innerText = message + " akan dibuka kelak.";
             toast.classList.remove('opacity-0');
             toast.classList.add('opacity-100');
             
-            setTimeout(() => {
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
                 toast.classList.remove('opacity-100');
                 toast.classList.add('opacity-0');
             }, 3000);
+        }
+
+        // Fungsi paparan toast untuk butang yang ditutup sementara bagi proses kemaskini
+        function showMaintenanceToast(title) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            const toastIcon = document.getElementById('toast-icon');
+            
+            toastIcon.className = "fas fa-lock text-amber-400 mr-2 flex-shrink-0";
+            toastMsg.innerText = title + " ditutup sementara untuk kemaskini sijil.";
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+            }, 3500);
         }
     </script>
 </body>
