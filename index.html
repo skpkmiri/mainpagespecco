@@ -52,6 +52,11 @@
     <!-- Bekas Utama Aplikasi (Berukuran Telefon Pintar) -->
     <div class="w-full max-w-md min-h-screen shadow-2xl relative overflow-hidden flex flex-col bg-cover bg-center" style="background-image: url('latar.png'); background-color: #fcf1d8;">
         
+        <!-- Butang Admin (Penjuru Atas Kanan) -->
+        <button onclick="openAdminGate()" title="Panel Admin" class="absolute top-3 right-3 z-30 w-9 h-9 rounded-full bg-black/65 hover:bg-black/85 backdrop-blur-md border border-amber-500/50 text-amber-300 hover:text-amber-200 flex items-center justify-center shadow-lg transition-all active:scale-95">
+            <i class="fas fa-user-shield text-xs"></i>
+        </button>
+
         <!-- Bahagian Pengepala (Header) & Statistik Pelawat -->
         <header class="pt-8 pb-4 px-6 z-10 relative flex flex-col items-center animate-fade-in" style="animation-delay: 0.1s;">
             <!-- Logo SPECCO (Sama lebar, tiada latar putih (mix-blend-multiply)) -->
@@ -817,6 +822,138 @@
         </footer>
     </div>
 
+    <!-- MODAL POP-UP PENGUMUMAN UNTUK PELAWAT -->
+    <div id="announcement-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-[#181410] border-2 border-amber-500/60 rounded-3xl max-w-sm w-full overflow-hidden shadow-2xl animate-fade-in">
+            <div class="bg-gradient-to-r from-amber-600 to-amber-800 px-5 py-3.5 flex items-center justify-between">
+                <div class="flex items-center gap-2 text-white">
+                    <i class="fas fa-bullhorn text-amber-200"></i>
+                    <span class="font-black text-xs uppercase tracking-widest">Pengumuman Rasmi</span>
+                </div>
+                <span class="text-[10px] text-amber-200 font-bold">SPECCO 2026</span>
+            </div>
+            
+            <div class="p-5 max-h-[75vh] overflow-y-auto space-y-3 text-center">
+                <!-- Poster Pengumuman -->
+                <div id="modal-ann-img-wrap" class="hidden rounded-2xl overflow-hidden border border-amber-500/30 bg-black/40">
+                    <img id="modal-ann-img" src="" alt="Poster Pengumuman" class="w-full h-auto object-contain max-h-80 mx-auto">
+                </div>
+                
+                <!-- Teks Pengumuman -->
+                <div id="modal-ann-text-wrap" class="hidden space-y-1.5 text-left bg-white/5 p-3.5 rounded-2xl border border-amber-500/20">
+                    <h4 id="modal-ann-title" class="font-extrabold text-amber-300 text-base leading-snug"></h4>
+                    <p id="modal-ann-body" class="text-xs sm:text-sm text-gray-200 whitespace-pre-line leading-relaxed"></p>
+                </div>
+
+                <button onclick="closeAnnouncementModal()" class="w-full mt-2 py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-black text-xs uppercase tracking-widest rounded-xl shadow-lg transition-all active:scale-95">
+                    <i class="fas fa-check-circle mr-1.5"></i> Faham dan Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL LOG MASUK ADMIN -->
+    <div id="admin-login-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-[#181410] border border-amber-500/50 rounded-3xl max-w-xs w-full p-6 shadow-2xl animate-fade-in">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2 text-amber-400">
+                    <i class="fas fa-lock"></i>
+                    <h3 class="font-black text-sm uppercase tracking-wider">Akses Admin</h3>
+                </div>
+                <button onclick="closeAdminLogin()" class="text-gray-400 hover:text-white"><i class="fas fa-times"></i></button>
+            </div>
+            <p class="text-xs text-gray-300 mb-3">Masukkan kata laluan pentadbir untuk mengurus pengumuman.</p>
+            <input type="password" id="admin-password-input" placeholder="Kata laluan admin..." onkeydown="if(event.key==='Enter') verifyAdminLogin()" class="w-full px-3.5 py-2.5 rounded-xl bg-black/70 border border-amber-500/40 text-white text-sm focus:outline-none focus:border-amber-400 mb-3">
+            <div class="flex gap-2">
+                <button onclick="closeAdminLogin()" class="w-1/2 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-gray-300 text-xs font-bold uppercase">Batal</button>
+                <button onclick="verifyAdminLogin()" class="w-1/2 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black text-xs font-black uppercase">Masuk</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PANEL ADMIN: PENGURUSAN PENGUMUMAN -->
+    <div id="admin-panel-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-[#181410] border border-amber-500/50 rounded-3xl max-w-sm w-full overflow-hidden shadow-2xl animate-fade-in flex flex-col max-h-[90vh]">
+            <div class="bg-gradient-to-r from-amber-700 to-amber-900 px-5 py-3.5 flex items-center justify-between">
+                <div class="flex items-center gap-2 text-white">
+                    <i class="fas fa-bullhorn text-amber-300"></i>
+                    <h3 class="font-black text-xs uppercase tracking-widest">Panel Pengumuman Admin</h3>
+                </div>
+                <button onclick="closeAdminPanel()" class="text-amber-200 hover:text-white"><i class="fas fa-times"></i></button>
+            </div>
+
+            <div class="p-5 overflow-y-auto space-y-4 text-white">
+                <!-- Pilihan Jenis Pengumuman -->
+                <div>
+                    <label class="block text-[11px] font-bold uppercase tracking-wider text-amber-300 mb-2">1. Pilih Jenis Pengumuman</label>
+                    <div class="grid grid-cols-3 gap-1.5">
+                        <button type="button" id="btn-type-text" onclick="setAnnouncementType('text')" class="ann-type-btn py-2 px-2 rounded-xl border border-amber-400 bg-amber-500 text-black font-bold text-[11px] transition">
+                            <i class="fas fa-align-left block mb-0.5"></i> Teks Sahaja
+                        </button>
+                        <button type="button" id="btn-type-image" onclick="setAnnouncementType('image')" class="ann-type-btn py-2 px-2 rounded-xl border border-amber-500/30 bg-black/50 text-gray-200 font-bold text-[11px] transition">
+                            <i class="fas fa-image block mb-0.5"></i> Gambar Sahaja
+                        </button>
+                        <button type="button" id="btn-type-both" onclick="setAnnouncementType('both')" class="ann-type-btn py-2 px-2 rounded-xl border border-amber-500/30 bg-black/50 text-gray-200 font-bold text-[11px] transition">
+                            <i class="fas fa-photo-video block mb-0.5"></i> Teks + Gambar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bahagian Input Teks -->
+                <div id="admin-text-section" class="space-y-2.5">
+                    <div>
+                        <label class="block text-[11px] font-bold text-amber-200 mb-1">Tajuk Pengumuman</label>
+                        <input type="text" id="ann-title-input" placeholder="Contoh: Makluman Majlis Penutupan" class="w-full px-3 py-2 rounded-xl bg-black/60 border border-amber-500/30 text-white text-xs focus:outline-none focus:border-amber-400">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold text-amber-200 mb-1">Mesej Pengumuman</label>
+                        <textarea id="ann-body-input" rows="3" placeholder="Tulis butiran pengumuman di sini..." class="w-full px-3 py-2 rounded-xl bg-black/60 border border-amber-500/30 text-white text-xs focus:outline-none focus:border-amber-400"></textarea>
+                    </div>
+                </div>
+
+                <!-- Bahagian Muat Naik Poster (ImgBB) -->
+                <div id="admin-image-section" class="hidden space-y-2.5">
+                    <label class="block text-[11px] font-bold text-amber-200">Muat Naik Poster Pengumuman</label>
+                    <label class="flex flex-col items-center justify-center p-4 border-2 border-dashed border-amber-500/40 rounded-2xl bg-black/40 hover:bg-black/60 cursor-pointer transition">
+                        <i class="fas fa-cloud-upload-alt text-2xl text-amber-400 mb-1"></i>
+                        <span id="upload-label-text" class="text-xs text-gray-200 font-medium text-center">Klik untuk pilih gambar poster</span>
+                        <span class="text-[10px] text-gray-400 mt-0.5">Format: JPG, PNG, WEBP</span>
+                        <input type="file" id="ann-image-file" accept="image/*" onchange="handlePosterUpload(event)" class="hidden">
+                    </label>
+                    
+                    <!-- Pratonton Gambar -->
+                    <div id="admin-poster-preview-wrap" class="hidden relative rounded-xl overflow-hidden border border-amber-500/40 bg-black/60 p-1">
+                        <img id="admin-poster-preview" src="" alt="Pratonton Poster" class="w-full max-h-44 object-contain rounded-lg">
+                        <button type="button" onclick="clearPosterImage()" class="absolute top-2 right-2 w-7 h-7 rounded-full bg-red-600 text-white text-xs flex items-center justify-center shadow">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Status Semasa -->
+                <div class="bg-white/5 border border-amber-500/20 rounded-xl p-3 flex items-center justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-wider text-gray-400 block">Status Pengumuman</span>
+                        <span id="admin-ann-status-label" class="text-xs font-bold text-amber-300">Tiada pengumuman aktif</span>
+                    </div>
+                    <button type="button" onclick="previewCurrentAnnouncement()" class="px-2.5 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-[11px] font-bold text-amber-200">
+                        <i class="fas fa-eye mr-1"></i> Pratonton
+                    </button>
+                </div>
+
+                <!-- Butang Simpan & Padam -->
+                <div class="flex gap-2 pt-1">
+                    <button type="button" onclick="deleteAnnouncement()" class="w-1/3 py-2.5 rounded-xl bg-red-600/80 hover:bg-red-600 text-white text-xs font-bold uppercase tracking-wider transition">
+                        <i class="fas fa-trash-alt mr-1"></i> Padam
+                    </button>
+                    <button type="button" id="btn-save-ann" onclick="saveAnnouncement()" class="w-2/3 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black text-xs font-black uppercase tracking-wider shadow-lg transition">
+                        <i class="fas fa-save mr-1"></i> Siarkan Pengumuman
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Elemen untuk Notifikasi (Toast) -->
     <div id="toast" class="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-black/95 text-white px-5 py-3 rounded-2xl shadow-2xl opacity-0 transition-opacity duration-300 pointer-events-none z-50 flex items-center border border-amber-500/50 max-w-[90vw] text-center">
         <i id="toast-icon" class="fas fa-info-circle text-amber-400 mr-2 flex-shrink-0"></i>
@@ -826,7 +963,7 @@
     <!-- Script Firebase (Module) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-        import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+        import { getFirestore, doc, getDoc, setDoc, updateDoc, increment, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
 
         // APP ID KEMBALI DIMASUKKAN - WAJIB ADA AGAR FIREBASE BERFUNGSI
         const firebaseConfig = {
@@ -880,11 +1017,47 @@
         }
         
         urusPelawat();
+
+        // ==========================================
+        // PENGURUSAN PENGUMUMAN REALTIME (FIRESTORE)
+        // ==========================================
+        const annDocRef = doc(db, "sistem_rekod", "pengumuman");
+        window.currentAnnouncementData = null;
+
+        onSnapshot(annDocRef, (snap) => {
+            if (snap.exists()) {
+                const ann = snap.data();
+                window.currentAnnouncementData = ann;
+                updateAdminStatusUI(ann);
+
+                if (ann.aktif) {
+                    const seenKey = "specco_ann_seen_" + (ann.updatedAt || "1");
+                    if (!sessionStorage.getItem(seenKey)) {
+                        renderAnnouncementModal(ann);
+                        sessionStorage.setItem(seenKey, "true");
+                    }
+                }
+            } else {
+                window.currentAnnouncementData = null;
+                updateAdminStatusUI(null);
+            }
+        }, (err) => {
+            console.error("Ralat membaca pengumuman:", err);
+        });
+
+        window.saveAnnouncementToFirebase = async function(payload) {
+            await setDoc(annDocRef, payload);
+        };
     </script>
 
-    <!-- Script Pertukaran Halaman (SPA) & Interaksi -->
+    <!-- Script Pertukaran Halaman (SPA), Admin & Pengumuman -->
     <script>
+        const IMGBB_API_KEY = "081ada53de25c8a775782ef246d7df93";
+        const ADMIN_PASS = "specco";
         let toastTimeout;
+        let selectedAnnType = "text";
+        let uploadedPosterUrl = "";
+        let isUploadingPoster = false;
 
         // Fungsi untuk menukar halaman Senarai Peserta, Galeri, Sijil, Sub-Sijil EC, Juri, dan Main
         function showView(viewId) {
@@ -915,14 +1088,14 @@
             }
         }
 
-        // Fungsi paparan toast untuk butang yang belum ada pautan rasmi
-        function showToast(message) {
+        // Fungsi paparan toast umum
+        function notifyToast(text, iconClass = "fas fa-info-circle text-amber-400") {
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-msg');
             const toastIcon = document.getElementById('toast-icon');
             
-            toastIcon.className = "fas fa-info-circle text-amber-400 mr-2 flex-shrink-0";
-            toastMsg.innerText = message + " akan dibuka kelak.";
+            toastIcon.className = iconClass + " mr-2 flex-shrink-0";
+            toastMsg.innerText = text;
             toast.classList.remove('opacity-0');
             toast.classList.add('opacity-100');
             
@@ -933,22 +1106,267 @@
             }, 3000);
         }
 
-        // Fungsi paparan toast untuk butang yang ditutup sementara bagi proses kemaskini
+        function showToast(message) {
+            notifyToast(message + " akan dibuka kelak.");
+        }
+
         function showMaintenanceToast(title) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-msg');
-            const toastIcon = document.getElementById('toast-icon');
-            
-            toastIcon.className = "fas fa-lock text-amber-400 mr-2 flex-shrink-0";
-            toastMsg.innerText = title + " ditutup sementara untuk kemaskini sijil.";
-            toast.classList.remove('opacity-0');
-            toast.classList.add('opacity-100');
-            
-            clearTimeout(toastTimeout);
-            toastTimeout = setTimeout(() => {
-                toast.classList.remove('opacity-100');
-                toast.classList.add('opacity-0');
-            }, 3500);
+            notifyToast(title + " ditutup sementara untuk kemaskini sijil.", "fas fa-lock text-amber-400");
+        }
+
+        // ==========================================
+        // FUNGSI MODAL PENGUMUMAN & PANEL ADMIN
+        // ==========================================
+        function renderAnnouncementModal(ann) {
+            if (!ann) return;
+            const modal = document.getElementById('announcement-modal');
+            const imgWrap = document.getElementById('modal-ann-img-wrap');
+            const imgEl = document.getElementById('modal-ann-img');
+            const textWrap = document.getElementById('modal-ann-text-wrap');
+            const titleEl = document.getElementById('modal-ann-title');
+            const bodyEl = document.getElementById('modal-ann-body');
+
+            const hasImage = (ann.jenis === 'image' || ann.jenis === 'both') && ann.imageUrl;
+            const hasText = (ann.jenis === 'text' || ann.jenis === 'both') && (ann.tajuk || ann.mesej);
+
+            if (hasImage) {
+                imgEl.src = ann.imageUrl;
+                imgWrap.classList.remove('hidden');
+            } else {
+                imgWrap.classList.add('hidden');
+            }
+
+            if (hasText) {
+                titleEl.innerText = ann.tajuk || "";
+                titleEl.classList.toggle('hidden', !ann.tajuk);
+                bodyEl.innerText = ann.mesej || "";
+                bodyEl.classList.toggle('hidden', !ann.mesej);
+                textWrap.classList.remove('hidden');
+            } else {
+                textWrap.classList.add('hidden');
+            }
+
+            if (hasImage || hasText) {
+                modal.classList.remove('hidden');
+            }
+        }
+
+        function closeAnnouncementModal() {
+            document.getElementById('announcement-modal').classList.add('hidden');
+        }
+
+        function openAdminGate() {
+            if (sessionStorage.getItem('specco_admin_auth') === 'true') {
+                openAdminPanel();
+            } else {
+                document.getElementById('admin-password-input').value = '';
+                document.getElementById('admin-login-modal').classList.remove('hidden');
+                setTimeout(() => document.getElementById('admin-password-input').focus(), 100);
+            }
+        }
+
+        function closeAdminLogin() {
+            document.getElementById('admin-login-modal').classList.add('hidden');
+        }
+
+        function verifyAdminLogin() {
+            const pass = document.getElementById('admin-password-input').value.trim();
+            if (pass === ADMIN_PASS) {
+                sessionStorage.setItem('specco_admin_auth', 'true');
+                closeAdminLogin();
+                openAdminPanel();
+                notifyToast("Berjaya log masuk sebagai Admin.", "fas fa-check-circle text-emerald-400");
+            } else {
+                notifyToast("Kata laluan admin tidak sah!", "fas fa-exclamation-triangle text-red-400");
+            }
+        }
+
+        function openAdminPanel() {
+            const data = window.currentAnnouncementData;
+            if (data && data.aktif) {
+                setAnnouncementType(data.jenis || 'text');
+                document.getElementById('ann-title-input').value = data.tajuk || '';
+                document.getElementById('ann-body-input').value = data.mesej || '';
+                if (data.imageUrl) {
+                    uploadedPosterUrl = data.imageUrl;
+                    document.getElementById('admin-poster-preview').src = data.imageUrl;
+                    document.getElementById('admin-poster-preview-wrap').classList.remove('hidden');
+                    document.getElementById('upload-label-text').innerText = "Gambar poster sedia ada (Klik untuk tukar)";
+                } else {
+                    clearPosterImage();
+                }
+            } else {
+                setAnnouncementType('text');
+                document.getElementById('ann-title-input').value = '';
+                document.getElementById('ann-body-input').value = '';
+                clearPosterImage();
+            }
+            updateAdminStatusUI(data);
+            document.getElementById('admin-panel-modal').classList.remove('hidden');
+        }
+
+        function closeAdminPanel() {
+            document.getElementById('admin-panel-modal').classList.add('hidden');
+        }
+
+        function setAnnouncementType(type) {
+            selectedAnnType = type;
+            document.querySelectorAll('.ann-type-btn').forEach(btn => {
+                btn.className = "ann-type-btn py-2 px-2 rounded-xl border border-amber-500/30 bg-black/50 text-gray-200 font-bold text-[11px] transition";
+            });
+            const activeBtn = document.getElementById('btn-type-' + type);
+            if (activeBtn) {
+                activeBtn.className = "ann-type-btn py-2 px-2 rounded-xl border border-amber-400 bg-amber-500 text-black font-bold text-[11px] transition shadow";
+            }
+
+            const textSec = document.getElementById('admin-text-section');
+            const imgSec = document.getElementById('admin-image-section');
+
+            if (type === 'text') {
+                textSec.classList.remove('hidden');
+                imgSec.classList.add('hidden');
+            } else if (type === 'image') {
+                textSec.classList.add('hidden');
+                imgSec.classList.remove('hidden');
+            } else {
+                textSec.classList.remove('hidden');
+                imgSec.classList.remove('hidden');
+            }
+        }
+
+        async function handlePosterUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            isUploadingPoster = true;
+            const labelEl = document.getElementById('upload-label-text');
+            labelEl.innerText = "Sedang memuat naik poster ke ImgBB...";
+            notifyToast("Memuat naik gambar poster...", "fas fa-spinner fa-spin text-amber-400");
+
+            try {
+                const formData = new FormData();
+                formData.append("image", file);
+
+                const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
+                    method: "POST",
+                    body: formData
+                });
+                const result = await res.json();
+
+                if (result.success) {
+                    uploadedPosterUrl = result.data.url;
+                    document.getElementById('admin-poster-preview').src = uploadedPosterUrl;
+                    document.getElementById('admin-poster-preview-wrap').classList.remove('hidden');
+                    labelEl.innerText = "Poster berjaya dimuat naik!";
+                    notifyToast("Poster berjaya dimuat naik!", "fas fa-check-circle text-emerald-400");
+                } else {
+                    throw new Error("Gagal muat naik");
+                }
+            } catch (err) {
+                console.error("Ralat muat naik ImgBB:", err);
+                labelEl.innerText = "Gagal muat naik. Sila cuba lagi.";
+                notifyToast("Gagal memuat naik poster ke ImgBB.", "fas fa-exclamation-triangle text-red-400");
+            } finally {
+                isUploadingPoster = false;
+            }
+        }
+
+        function clearPosterImage() {
+            uploadedPosterUrl = "";
+            document.getElementById('ann-image-file').value = "";
+            document.getElementById('admin-poster-preview').src = "";
+            document.getElementById('admin-poster-preview-wrap').classList.add('hidden');
+            document.getElementById('upload-label-text').innerText = "Klik untuk pilih gambar poster";
+        }
+
+        function updateAdminStatusUI(ann) {
+            const statusLabel = document.getElementById('admin-ann-status-label');
+            if (!statusLabel) return;
+            if (ann && ann.aktif) {
+                const jenisText = ann.jenis === 'text' ? 'Teks Sahaja' : ann.jenis === 'image' ? 'Gambar Sahaja' : 'Teks + Gambar';
+                statusLabel.innerText = "AKTIF (" + jenisText + ")";
+                statusLabel.className = "text-xs font-bold text-emerald-400";
+            } else {
+                statusLabel.innerText = "Tiada pengumuman aktif";
+                statusLabel.className = "text-xs font-bold text-gray-400";
+            }
+        }
+
+        function previewCurrentAnnouncement() {
+            const draft = {
+                aktif: true,
+                jenis: selectedAnnType,
+                tajuk: document.getElementById('ann-title-input').value.trim(),
+                mesej: document.getElementById('ann-body-input').value.trim(),
+                imageUrl: uploadedPosterUrl
+            };
+            if ((selectedAnnType === 'text' || selectedAnnType === 'both') && !draft.tajuk && !draft.mesej) {
+                notifyToast("Sila isi tajuk atau mesej pengumuman.", "fas fa-info-circle text-amber-400");
+                return;
+            }
+            if ((selectedAnnType === 'image' || selectedAnnType === 'both') && !draft.imageUrl) {
+                notifyToast("Sila muat naik gambar poster dahulu.", "fas fa-info-circle text-amber-400");
+                return;
+            }
+            renderAnnouncementModal(draft);
+        }
+
+        async function saveAnnouncement() {
+            if (isUploadingPoster) {
+                notifyToast("Sila tunggu muat naik poster selesai.", "fas fa-spinner fa-spin text-amber-400");
+                return;
+            }
+
+            const tajuk = document.getElementById('ann-title-input').value.trim();
+            const mesej = document.getElementById('ann-body-input').value.trim();
+
+            if ((selectedAnnType === 'text' || selectedAnnType === 'both') && !tajuk && !mesej) {
+                notifyToast("Sila masukkan tajuk atau mesej pengumuman.", "fas fa-exclamation-triangle text-amber-400");
+                return;
+            }
+            if ((selectedAnnType === 'image' || selectedAnnType === 'both') && !uploadedPosterUrl) {
+                notifyToast("Sila muat naik poster pengumuman terlebih dahulu.", "fas fa-exclamation-triangle text-amber-400");
+                return;
+            }
+
+            const payload = {
+                aktif: true,
+                jenis: selectedAnnType,
+                tajuk: selectedAnnType === 'image' ? '' : tajuk,
+                mesej: selectedAnnType === 'image' ? '' : mesej,
+                imageUrl: selectedAnnType === 'text' ? '' : uploadedPosterUrl,
+                updatedAt: Date.now()
+            };
+
+            try {
+                await window.saveAnnouncementToFirebase(payload);
+                closeAdminPanel();
+                renderAnnouncementModal(payload);
+                notifyToast("Pengumuman berjaya disiarkan!", "fas fa-check-circle text-emerald-400");
+            } catch (err) {
+                console.error("Ralat simpan pengumuman:", err);
+                notifyToast("Gagal menyimpan pengumuman.", "fas fa-exclamation-triangle text-red-400");
+            }
+        }
+
+        async function deleteAnnouncement() {
+            try {
+                await window.saveAnnouncementToFirebase({
+                    aktif: false,
+                    jenis: 'text',
+                    tajuk: '',
+                    mesej: '',
+                    imageUrl: '',
+                    updatedAt: Date.now()
+                });
+                document.getElementById('ann-title-input').value = '';
+                document.getElementById('ann-body-input').value = '';
+                clearPosterImage();
+                notifyToast("Pengumuman telah dipadam.", "fas fa-trash text-amber-400");
+            } catch (err) {
+                console.error("Ralat padam pengumuman:", err);
+                notifyToast("Gagal memadam pengumuman.", "fas fa-exclamation-triangle text-red-400");
+            }
         }
     </script>
 </body>
